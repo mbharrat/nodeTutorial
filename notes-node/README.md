@@ -58,3 +58,12 @@ node_modules
 ```
 
 The .gitignore will allow git to actually ignore this file (so your .gitignore file won't show up in your repo)
+
+**Nodemon**
+
+This third party module allows for node to refresh whenever you save
+
+```sh
+npm install nodemon -g
+```
+The `-g` flag means it's saved globally as a cli interface! Not a dependancy in your project.
