@@ -67,3 +67,41 @@ This third party module allows for node to refresh whenever you save
 npm install nodemon -g
 ```
 The `-g` flag means it's saved globally as a cli interface! Not a dependancy in your project.
+
+#### Getting Input from User
+
+There are multiple ways to do this
+
+You can use process.argv.
+
+If you do this by `console.log(process.argv)` you will get all the CLI arguments you input into CLI.
+
+For example, if you enter
+
+```sh
+$node app.js remove
+```
+
+and run `console.log(process.argv[2])`, this will ask for the third argument and it will log **remove**.
+
+Turns out this is an annoying way to do this... the better idea is to use a third party module called **Yargs**.
+
+**YARGS**
+
+```$npm install yargs@4.7.1 --save```
+
+This is exactly how it always has been except after the @ you can specify the version number.
+
+Once installed these are the basic steps.
+
+```js
+const yargs = require('yargs')
+const argv = yargs.argv
+```
+
+We are using the argv object on yargs.
+
+You can pass in specific arguments like this:
+`$node app.js add --title='Scene' --body='testBody'`
+
+To access 'add' you can use `yargs.argv._[0]`, to access title you do `yargs.argv.title` to access body you do `yargs.argv.body`
