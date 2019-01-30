@@ -11,27 +11,27 @@ _To do_
 Use require to import modules
 
 ```js
-const fs = require('fs')
+const fs = require("fs");
 ```
 
 If you import your own modules you need to use the relative path in the require
 
 ```js
-const notes = require('./notes.js')
+const notes = require("./notes.js");
 ```
 
 To define your own modules write as follows:
 
 ```js
 module.exports.add = (a, b) => {
-    return a + b
-}
+    return a + b;
+};
 ```
 
 Then after importing you can consume this function as follows:
 
 ```js
-notes.add(5, 2)
+notes.add(5, 2);
 ```
 
 #### 3rd Party Modules
@@ -66,6 +66,7 @@ This third party module allows for node to refresh whenever you save
 ```sh
 npm install nodemon -g
 ```
+
 The `-g` flag means it's saved globally as a cli interface! Not a dependancy in your project.
 
 #### Getting Input from User
@@ -88,15 +89,15 @@ Turns out this is an annoying way to do this... the better idea is to use a thir
 
 **YARGS**
 
-```$npm install yargs@4.7.1 --save```
+`$npm install yargs@4.7.1 --save`
 
 This is exactly how it always has been except after the @ you can specify the version number.
 
 Once installed these are the basic steps.
 
 ```js
-const yargs = require('yargs')
-const argv = yargs.argv
+const yargs = require("yargs");
+const argv = yargs.argv;
 ```
 
 We are using the argv object on yargs.
@@ -105,3 +106,29 @@ You can pass in specific arguments like this:
 `$node app.js add --title='Scene' --body='testBody'`
 
 To access 'add' you can use `yargs.argv._[0]`, to access title you do `yargs.argv.title` to access body you do `yargs.argv.body`
+
+**JSON**
+
+Json is a notation to store data in Javascript Object Notation.
+
+A json object looks like so:
+
+```json
+{
+    "title": "some_Title",
+    "body": "some_Body"
+}
+```
+
+A Json object stored in a js variable looks like this:
+
+```js
+let jsonObject = {
+    title: "some_Title",
+    body: "some_Body"
+};
+```
+
+To convert a json object to a string you run the stringify method: `var personString = JSON.stringify(jsonObject)`
+
+To convert a json string (stored in some file.json) into a JS object again you run the parse method: `var person = JSON.parse(personString)`

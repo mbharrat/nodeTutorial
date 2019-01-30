@@ -19,6 +19,7 @@ var originalNote = {
 }
 // originalNoteString
 const originalNoteString = JSON.stringify(originalNote)
+console.log(typeof originalNoteString)
 fs.writeFileSync('notes.json',originalNoteString)
 
 var noteString = fs.readFileSync('notes.json')
