@@ -11,27 +11,27 @@ _To do_
 Use require to import modules
 
 ```js
-const fs = require("fs");
+const fs = require("fs")
 ```
 
 If you import your own modules you need to use the relative path in the require
 
 ```js
-const notes = require("./notes.js");
+const notes = require("./notes.js")
 ```
 
 To define your own modules write as follows:
 
 ```js
 module.exports.add = (a, b) => {
-    return a + b;
-};
+    return a + b
+}
 ```
 
 Then after importing you can consume this function as follows:
 
 ```js
-notes.add(5, 2);
+notes.add(5, 2)
 ```
 
 #### 3rd Party Modules
@@ -96,8 +96,8 @@ This is exactly how it always has been except after the @ you can specify the ve
 Once installed these are the basic steps.
 
 ```js
-const yargs = require("yargs");
-const argv = yargs.argv;
+const yargs = require("yargs")
+const argv = yargs.argv
 ```
 
 We are using the argv object on yargs.
@@ -126,9 +126,14 @@ A Json object stored in a js variable looks like this:
 let jsonObject = {
     title: "some_Title",
     body: "some_Body"
-};
+}
 ```
 
 To convert a json object to a string you run the stringify method: `var personString = JSON.stringify(jsonObject)`
 
 To convert a json string (stored in some file.json) into a JS object again you run the parse method: `var person = JSON.parse(personString)`
+
+**FS**
+
+To read a file: `fs.readFileSync('<nameOfFile>')`
+To write a file: `fs.writeFileSync('<nameOfFile>',contents)`
