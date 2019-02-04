@@ -21,8 +21,8 @@ var addNote = (title, body) => {
     if(duplicateNotes.length === 0){
         notes.push(note)
         fs.writeFileSync('notes-data.json', JSON.stringify(notes))
+        return note
     }
-    
 }
 
 var getAll = () => {
