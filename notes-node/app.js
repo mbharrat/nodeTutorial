@@ -25,10 +25,14 @@ if(command === 'add'){
 }else if(command === 'list'){
     notes.getAll()
 }else if(command === 'read'){
-    notes.readNote(argv.title)
+    var foundNote =  notes.readNote(argv.title)
+    var message = foundNote !== undefined ? `Body: ${foundNote.body}` : 'No note found.'
+    console.log(message)
 
 }else if(command === 'remove'){
-    notes.removeNote(argv.title)
+    var didRemove = notes.removeNote(argv.title)
+    var message = didRemove ? 'Note was removed.' : 'No note was removed.'
+    console.log(message)
 }else{
     console.log('Command not recognized')
 }
