@@ -54,12 +54,21 @@ var removeNote = (title) => {
 
     return notes.length !== keptNotes.length
 }
+
+var logNote = (note) => {
+
+    debugger
+    console.log('----------------')
+    console.log(`Title: ${note.title}`)
+    console.log(`Body: ${note.body}`)
+}
  module.exports = {
     addNote,
     //addNote: addNote
     //This is identical
     getAll,
     readNote,
-    removeNote
+    removeNote,
+    logNote
  }
 

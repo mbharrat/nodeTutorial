@@ -157,3 +157,34 @@ You can write like:
     body
 }
 ```
+
+**DEBUGGING**
+
+You can debug node application from the CLI:
+
+```sh
+$node inspect <pathToFile/Name>
+```
+
+This starts the debugger.
+
+When in debug mode:
+
+-   `list(<Number>)` lists that many lines of the whole code in the debugger
+-   `n` is short for next, this continues to next line of code (does no execute yet)
+-   `c` is short for continue and moves through full execution (or up to where a debugger statement is found in the code)
+-   `repl` is short for read eval print loop which allows for a dev to look into code via javascript to see value of objects/manipulate values of object
+-   In order to not always traverse using `n` you can put a `debugger` statement in your code:
+
+For example:
+
+```js
+var logNote = note => {
+    debugger;
+    console.log("----------------");
+    console.log(`Title: ${note.title}`);
+    console.log(`Body: ${note.body}`);
+};
+```
+
+Now when you put `c` in debugger in cli it will stop at that debug statement

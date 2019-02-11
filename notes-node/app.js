@@ -15,9 +15,7 @@ if(command === 'add'){
     var note = notes.addNote(argv.title, argv.body)
     if(note){
         console.log('Creating note.')
-        console.log('----------------')
-        console.log(`Title: ${note.title}`)
-        console.log(`Body: ${note.body}`)
+        notes.logNote(note)
 
     }else{
         console.log('Duplicate note.')
@@ -26,8 +24,9 @@ if(command === 'add'){
     notes.getAll()
 }else if(command === 'read'){
     var foundNote =  notes.readNote(argv.title)
-    var message = foundNote !== undefined ? `Body: ${foundNote.body}` : 'No note found.'
-    console.log(message)
+    console.log('Searching for note...')
+    var message = foundNote !== undefined ? `${notes.logNote(foundNote)}`  : console.log('No note found.')
+    
 
 }else if(command === 'remove'){
     var didRemove = notes.removeNote(argv.title)
