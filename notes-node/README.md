@@ -188,3 +188,13 @@ var logNote = note => {
 ```
 
 Now when you put `c` in debugger in cli it will stop at that debug statement
+
+For _Chrome_ debugging enter this into cli:
+
+```sh
+$node --inspect-brk <nameOfFile>
+```
+
+This works just like cli but to view the debugger go to chrome, and enter url chrome://inspect.
+
+To continue you toggle the continue button, to step over you toggle the step over button. This is just the normal debugger with a GUI
