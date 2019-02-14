@@ -35,6 +35,8 @@ var addNote = (title, body) => {
 
 var getAll = () => {
     console.log('Getting all notes')
+    var getAll = fetchNotes()
+    getAll.forEach(logNote)
 }
 
 var readNote = (title) => {
