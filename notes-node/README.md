@@ -34,7 +34,7 @@ Then after importing you can consume this function as follows:
 notes.add(5, 2);
 ```
 
-#### 3rd Party Modules
+## 3rd Party Modules
 
 First step is to create a package.json file
 
@@ -59,7 +59,7 @@ node_modules
 
 The .gitignore will allow git to actually ignore this file (so your .gitignore file won't show up in your repo)
 
-**Nodemon**
+### Nodemon
 
 This third party module allows for node to refresh whenever you save
 
@@ -69,7 +69,7 @@ npm install nodemon -g
 
 The `-g` flag means it's saved globally as a cli interface! Not a dependancy in your project.
 
-#### Getting Input from User
+# Getting Input from User
 
 There are multiple ways to do this
 
@@ -87,7 +87,7 @@ and run `console.log(process.argv[2])`, this will ask for the third argument and
 
 Turns out this is an annoying way to do this... the better idea is to use a third party module called **Yargs**.
 
-**YARGS**
+### YARGS
 
 `$npm install yargs@4.7.1 --save`
 
@@ -109,7 +109,7 @@ To access 'add' you can use `yargs.argv._[0]`, to access title you do `yargs.arg
 
 In this project we use the .command() functionality found in documentation. You can view the documentation [here](http://yargs.js.org/).
 
-**JSON**
+### JSON
 
 Json is a notation to store data in Javascript Object Notation.
 
@@ -135,12 +135,12 @@ To convert a json object to a string you run the stringify method: `var personSt
 
 To convert a json string (stored in some file.json) into a JS object again you run the parse method: `var person = JSON.parse(personString)`
 
-**FS**
+### FS
 
 To read a file: `fs.readFileSync('<nameOfFile>')`
 To write a file: `fs.writeFileSync('<nameOfFile>',contents)`
 
-**Syntax**
+## Syntax
 
 In ES6 if the key is the same as the name of the attribute instead of:
 
@@ -160,7 +160,7 @@ You can write like:
 }
 ```
 
-**DEBUGGING**
+### DEBUGGING
 
 You can debug node application from the CLI:
 
@@ -200,3 +200,57 @@ $node --inspect-brk <nameOfFile>
 This works just like cli but to view the debugger go to chrome, and enter url chrome://inspect.
 
 To continue you toggle the continue button, to step over you toggle the step over button. This is just the normal debugger with a GUI
+
+### Arrow Functions
+
+There are some important things to note with arrow functions. They work differently than normal functions.
+
+**They do not bind the `this` keyword.**
+
+```js
+var user = {
+    name: "Michael",
+    sayHi: () => {
+        console.log(`Hi. I'm ${this.name}`);
+    }
+};
+```
+
+The `sayHi` function will print `Hi. I'm undefined.` It does not have access to `this` keyword. However if you define the same object with a normal function:
+
+```js
+var user = {
+    name: "Michael",
+    sayHi() {
+        console.log(`Hi. I'm ${this.name}`);
+    }
+};
+```
+
+This will work as expected and print `Hi. I'm Michael`
+
+**They do not bind the `arguments array`**
+
+```js
+var user = {
+    name: "Michael",
+    sayHi: () => {
+        console.log(arguments);
+    }
+};
+user.sayHi(1, 2, 3);
+```
+
+This won't print as expected, it will actually print the arguments of the global object. As a normal function:
+
+```js
+var user = {
+    name: "Michael",
+    sayHi() {
+        console.log(arguments);
+    }
+};
+user.sayHi(1, 2, 3);
+```
+
+This will print `[Arguments] { '0': 1, '1': 2, '2': 3 }` which is exactly what is expectected.
