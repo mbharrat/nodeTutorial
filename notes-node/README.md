@@ -107,6 +107,8 @@ You can pass in specific arguments like this:
 
 To access 'add' you can use `yargs.argv._[0]`, to access title you do `yargs.argv.title` to access body you do `yargs.argv.body`
 
+In this project we use the .command() functionality found in documentation. You can view the documentation [here](http://yargs.js.org/).
+
 **JSON**
 
 Json is a notation to store data in Javascript Object Notation.

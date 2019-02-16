@@ -1,5 +1,3 @@
-console.log('Starting notes.js')
-
 const fs = require('fs')
 
 var fetchNotes = () => {
@@ -34,8 +32,8 @@ var addNote = (title, body) => {
 }
 
 var getAll = () => {
-    console.log('Getting all notes')
     var getAll = fetchNotes()
+    console.log(`Printing ${getAll.length} notes.`)
     getAll.forEach(logNote)
 }
 
